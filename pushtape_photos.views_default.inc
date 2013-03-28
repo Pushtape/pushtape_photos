@@ -41,8 +41,16 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No Photos yet';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No photos yet. Create a <a href="node/add/photoset">photoset!</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'No photos yet. Create a <a href="?q=node/add/photoset">photoset!</a>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Photos */
   $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
   $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
@@ -87,8 +95,35 @@ function pushtape_photos_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Photos */
+  $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
+  $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
+  $handler->display->display_options['fields']['field_photos']['field'] = 'field_photos';
+  $handler->display->display_options['fields']['field_photos']['label'] = '';
+  $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
+  $handler->display->display_options['fields']['field_photos']['settings'] = array(
+    'colorbox_node_style' => 'photo_thumb',
+    'colorbox_image_style' => 'photo_large',
+    'colorbox_gallery' => 'page',
+    'colorbox_gallery_custom' => '',
+    'colorbox_caption' => 'auto',
+    'colorbox_caption_custom' => '',
+  );
+  $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
   $handler->display->display_options['path'] = 'photos';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Photos';
@@ -125,187 +160,6 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-
-  /* Display: All Photosets */
-  $handler = $view->new_display('panel_pane', 'All Photosets', 'panel_pane_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['fill_single_line'] = FALSE;
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Photos */
-  $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
-  $handler->display->display_options['fields']['field_photos']['field'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['label'] = '';
-  $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
-  $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'artwork_small',
-    'colorbox_image_style' => 'photo_large',
-    'colorbox_gallery' => 'page',
-    'colorbox_gallery_custom' => '',
-    'colorbox_caption' => 'auto',
-    'colorbox_caption_custom' => '',
-  );
-  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['delta_limit'] = '';
-  $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 0;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'photoset' => 'photoset',
-  );
-  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
-  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
-  $handler->display->display_options['pane_category']['name'] = 'Photos';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-
-  /* Display: Featured Photoset */
-  $handler = $view->new_display('panel_pane', 'Featured Photoset', 'panel_pane_2');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Photos (field_photos:fid) */
-  $handler->display->display_options['relationships']['field_photos_fid']['id'] = 'field_photos_fid';
-  $handler->display->display_options['relationships']['field_photos_fid']['table'] = 'field_data_field_photos';
-  $handler->display->display_options['relationships']['field_photos_fid']['field'] = 'field_photos_fid';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photos */
-  $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
-  $handler->display->display_options['fields']['field_photos']['field'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['label'] = '';
-  $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'image_style' => 'panopoly_image_full',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_photos']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Global: Random */
-  $handler->display->display_options['sorts']['random']['id'] = 'random';
-  $handler->display->display_options['sorts']['random']['table'] = 'views';
-  $handler->display->display_options['sorts']['random']['field'] = 'random';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Feature content (field_featured_status) */
-  $handler->display->display_options['filters']['field_featured_status_value']['id'] = 'field_featured_status_value';
-  $handler->display->display_options['filters']['field_featured_status_value']['table'] = 'field_data_field_featured_status';
-  $handler->display->display_options['filters']['field_featured_status_value']['field'] = 'field_featured_status_value';
-  $handler->display->display_options['filters']['field_featured_status_value']['value'] = array(
-    1 => '1',
-  );
-  $handler->display->display_options['filters']['field_featured_status_value']['group'] = 1;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'photoset' => 'photoset',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
-  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
-  $handler->display->display_options['pane_category']['name'] = 'Photos';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-
-  /* Display: Photo override */
-  $handler = $view->new_display('entity_view', 'Photo override', 'entity_view_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photos */
-  $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
-  $handler->display->display_options['fields']['field_photos']['field'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['label'] = '';
-  $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
-  $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'photo_thumb',
-    'colorbox_image_style' => 'photo_large',
-    'colorbox_gallery' => 'post',
-    'colorbox_gallery_custom' => '',
-    'colorbox_caption' => 'auto',
-    'colorbox_caption_custom' => '',
-  );
-  $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['entity_type'] = 'node';
-  $handler->display->display_options['bundles'] = array(
-    0 => 'photoset',
-  );
   $export['photosets'] = $view;
 
   return $export;

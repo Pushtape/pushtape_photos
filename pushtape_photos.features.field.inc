@@ -10,158 +10,6 @@
 function pushtape_photos_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-photoset-field_addthis'.
-  $fields['node-photoset-field_addthis'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_addthis',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'addthis',
-      'settings' => array(
-        'max_length' => 255,
-      ),
-      'translatable' => '0',
-      'type' => 'addthis',
-    ),
-    'field_instance' => array(
-      'bundle' => 'photoset',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'addthis_displays',
-          'settings' => array(
-            'button_size' => 'small',
-            'extra_css' => '',
-          ),
-          'type' => 'addthis_basic_button',
-          'weight' => '1',
-        ),
-        'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_addthis',
-      'label' => 'AddThis',
-      'required' => FALSE,
-      'settings' => array(
-        'mediafront' => array(
-          'custom' => '',
-          'field_type' => '0',
-          'media_type' => 'media',
-          'preview' => '0',
-          'thumbnail' => '0',
-        ),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'addthis',
-        'settings' => array(),
-        'type' => 'addthis_button_widget',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-photoset-field_featured_status'.
-  $fields['node-photoset-field_featured_status'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_featured_status',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'No',
-          1 => 'Yes',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'photoset',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '2',
-        ),
-        'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_featured_status',
-      'label' => 'Feature content',
-      'required' => 0,
-      'settings' => array(
-        'mediafront' => array(
-          'custom' => '',
-          'field_type' => '0',
-          'media_type' => 'media',
-          'preview' => '0',
-          'thumbnail' => '0',
-        ),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 1,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '2',
-      ),
-    ),
-  );
-
   // Exported field: 'node-photoset-field_photos'.
   $fields['node-photoset-field_photos'] = array(
     'field_config' => array(
@@ -199,15 +47,34 @@ function pushtape_photos_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '3',
+          'module' => 'colorbox',
+          'settings' => array(
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => 'photo_large',
+            'colorbox_multivalue_index' => NULL,
+            'colorbox_node_style' => 'photo_thumb',
+          ),
+          'type' => 'colorbox',
+          'weight' => '0',
         ),
         'featured' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'rss' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'artwork_thumbnail',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -236,26 +103,33 @@ function pushtape_photos_field_default_fields() {
         'module' => 'media',
         'settings' => array(
           'allowed_schemes' => array(
-            0 => 'public',
-            1 => 'private',
+            'private' => 'private',
+            'public' => 'public',
+            'vimeo' => 0,
+            'youtube' => 0,
           ),
           'allowed_types' => array(
-            0 => 'image',
+            'audio' => 0,
+            'document' => 0,
+            'image' => 'image',
+            'video' => 0,
           ),
-          'browser_plugins' => array(),
-          'preview_image_style' => 'thumbnail',
+          'browser_plugins' => array(
+            'media_default--media_browser_1' => 'media_default--media_browser_1',
+            'media_default--media_browser_my_files' => 0,
+            'media_internet' => 0,
+            'upload' => 'upload',
+          ),
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '1',
+        'weight' => '31',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('AddThis');
-  t('Feature content');
   t('Photos');
 
   return $fields;
