@@ -28,4 +28,5 @@ features[variable][] = menu_parent_photoset
 features[variable][] = node_options_photoset
 features[variable][] = node_preview_photoset
 features[variable][] = node_submitted_photoset
+features[variable][] = panelizer_defaults_node_photoset
 features[views_view][] = photosets
