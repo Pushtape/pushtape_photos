@@ -10,6 +10,80 @@
 function pushtape_photos_field_default_fields() {
   $fields = array();
 
+  // Exported field: 'node-photoset-field_featured_status'.
+  $fields['node-photoset-field_featured_status'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_featured_status',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'No',
+          1 => 'Yes',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'photoset',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'featured' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_featured_status',
+      'label' => 'Feature content',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '3',
+      ),
+    ),
+  );
+
   // Exported field: 'node-photoset-field_photos'.
   $fields['node-photoset-field_photos'] = array(
     'field_config' => array(
@@ -61,10 +135,14 @@ function pushtape_photos_field_default_fields() {
           'weight' => '0',
         ),
         'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'photo_thumb',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'rss' => array(
           'label' => 'hidden',
@@ -123,13 +201,14 @@ function pushtape_photos_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '31',
+        'weight' => '1',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Feature content');
   t('Photos');
 
   return $fields;
