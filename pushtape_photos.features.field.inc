@@ -10,82 +10,8 @@
 function pushtape_photos_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-pushtape_photos-field_addthis'.
-  $fields['node-pushtape_photos-field_addthis'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_addthis',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'addthis',
-      'settings' => array(
-        'max_length' => 255,
-      ),
-      'translatable' => '0',
-      'type' => 'addthis',
-    ),
-    'field_instance' => array(
-      'bundle' => 'pushtape_photos',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'addthis',
-          'settings' => array(),
-          'type' => 'addthis_disabled',
-          'weight' => 7,
-        ),
-        'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
-        ),
-        'mediaplaylist' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_addthis',
-      'label' => 'AddThis',
-      'required' => FALSE,
-      'settings' => array(
-        'mediafront' => array(
-          'custom' => '',
-          'field_type' => '0',
-          'media_type' => 'media',
-          'preview' => '0',
-          'thumbnail' => '0',
-        ),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'addthis',
-        'settings' => array(),
-        'type' => 'addthis_button_widget',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-pushtape_photos-field_featured_status'.
-  $fields['node-pushtape_photos-field_featured_status'] = array(
+  // Exported field: 'node-photoset-field_featured_status'.
+  $fields['node-photoset-field_featured_status'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -111,7 +37,7 @@ function pushtape_photos_field_default_fields() {
       'type' => 'list_boolean',
     ),
     'field_instance' => array(
-      'bundle' => 'pushtape_photos',
+      'bundle' => 'photoset',
       'default_value' => array(
         0 => array(
           'value' => 0,
@@ -122,22 +48,15 @@ function pushtape_photos_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 6,
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'featured' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
-        ),
-        'mediaplaylist' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -151,13 +70,6 @@ function pushtape_photos_field_default_fields() {
       'label' => 'Feature content',
       'required' => 0,
       'settings' => array(
-        'mediafront' => array(
-          'custom' => '',
-          'field_type' => '0',
-          'media_type' => 'media',
-          'preview' => '0',
-          'thumbnail' => '0',
-        ),
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -167,19 +79,19 @@ function pushtape_photos_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-pushtape_photos-field_images'.
-  $fields['node-pushtape_photos-field_images'] = array(
+  // Exported field: 'node-photoset-field_photos'.
+  $fields['node-photoset-field_photos'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_images',
+      'field_name' => 'field_photos',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -203,52 +115,65 @@ function pushtape_photos_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'pushtape_photos',
+      'bundle' => 'photoset',
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
+          'label' => 'hidden',
+          'module' => 'colorbox',
+          'settings' => array(
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => 'photo_large',
+            'colorbox_multivalue_index' => NULL,
+            'colorbox_node_style' => 'photo_thumb',
+          ),
+          'type' => 'colorbox',
+          'weight' => '0',
         ),
         'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '7',
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'photo_thumb',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
-        'mediaplaylist' => array(
+        'rss' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'artwork_thumbnail',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => 'content',
-            'image_style' => 'artwork_medium',
-          ),
-          'type' => 'image',
-          'weight' => '0',
-        ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_images',
-      'label' => 'Images',
+      'field_name' => 'field_photos',
+      'label' => 'Photos',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
-        'file_directory' => 'images',
+        'file_directory' => 'photos',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '',
         'min_resolution' => '',
-        'title_field' => 0,
+        'title_field' => 1,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -258,7 +183,6 @@ function pushtape_photos_field_default_fields() {
           'allowed_schemes' => array(
             'private' => 'private',
             'public' => 'public',
-            'soundcloud' => 0,
             'vimeo' => 0,
             'youtube' => 0,
           ),
@@ -284,9 +208,8 @@ function pushtape_photos_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('AddThis');
   t('Feature content');
-  t('Images');
+  t('Photos');
 
   return $fields;
 }
