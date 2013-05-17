@@ -45,11 +45,11 @@ function pushtape_photos_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '900',
+          'width' => 900,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -68,10 +68,10 @@ function pushtape_photos_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '205',
-          'height' => '205',
+          'width' => 205,
+          'height' => 205,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -90,10 +90,10 @@ function pushtape_photos_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '100',
-          'height' => '100',
+          'width' => 100,
+          'height' => 100,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
