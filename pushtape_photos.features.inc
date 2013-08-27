@@ -52,11 +52,13 @@ function pushtape_photos_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'photo_large',
   );
 
   // Exported image style: photo_thumb.
   $styles['photo_thumb'] = array(
     'name' => 'photo_thumb',
+    'label' => 'photo_thumb',
     'effects' => array(
       1 => array(
         'label' => 'Scale and crop',
@@ -72,6 +74,35 @@ function pushtape_photos_image_default_styles() {
           'height' => 205,
         ),
         'weight' => 1,
+      ),
+      3 => array(
+        'label' => 'Define canvas',
+        'help' => 'Define the size of the working canvas and background color, this controls the dimensions of the output image.',
+        'effect callback' => 'canvasactions_definecanvas_effect',
+        'dimensions callback' => 'canvasactions_definecanvas_dimensions',
+        'form callback' => 'canvasactions_definecanvas_form',
+        'summary theme' => 'canvasactions_definecanvas_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_definecanvas',
+        'data' => array(
+          'RGB' => array(
+            'HEX' => 0,
+          ),
+          'under' => 1,
+          'exact' => array(
+            'width' => '',
+            'height' => '',
+            'xpos' => 'center',
+            'ypos' => 'center',
+          ),
+          'relative' => array(
+            'leftdiff' => 5,
+            'rightdiff' => 5,
+            'topdiff' => 5,
+            'bottomdiff' => 5,
+          ),
+        ),
+        'weight' => 3,
       ),
     ),
   );
@@ -96,6 +127,7 @@ function pushtape_photos_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'photo_tiny',
   );
 
   return $styles;

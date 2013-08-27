@@ -23,6 +23,7 @@ function pushtape_photos_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Photos';
+  $handler->display->display_options['css_class'] = 'widgets';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -91,6 +92,12 @@ function pushtape_photos_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -110,13 +117,14 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'photo_thumb',
+    'colorbox_node_style' => 'panopoly_image_video',
     'colorbox_image_style' => 'photo_large',
     'colorbox_gallery' => 'page',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'auto',
     'colorbox_caption_custom' => '',
   );
+  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
   $handler->display->display_options['path'] = 'photos';
@@ -160,13 +168,15 @@ function pushtape_photos_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Featured Photoset', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Featured Photoset';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'widgets';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -194,9 +204,10 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'image_style' => 'photo_thumb',
+    'image_style' => 'panopoly_image_video',
     'image_link' => 'content',
   );
+  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_photos']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
