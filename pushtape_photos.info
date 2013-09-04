@@ -19,7 +19,7 @@ dependencies[] = plupload
 dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_content
-datestamp = 1376349372
+datestamp = 1377651345
 features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
@@ -39,8 +39,17 @@ features[variable][] = node_options_photoset
 features[variable][] = node_preview_photoset
 features[variable][] = node_submitted_photoset
 features[variable][] = panelizer_defaults_node_photoset
+features[variable][] = pathauto_node_photoset_pattern
 features[views_view][] = photosets
 features_exclude[dependencies][pushtape_video] = pushtape_video
 features_exclude[dependencies][pushtape_discography] = pushtape_discography
 features_exclude[field][node-photoset-field_featured_status] = node-photoset-field_featured_status
 features_exclude[field][node-photoset-field_photos] = node-photoset-field_photos
+
+
+; Information added by drush on 2013-08-27
+version = "7.x-1.x-panels-dev"
+core = "7.x"
+project = "pushtape_photos"
+datestamp = "1377651345"
+

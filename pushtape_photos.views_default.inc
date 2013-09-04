@@ -249,6 +249,12 @@ function pushtape_photos_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Node Override (Colorbox)', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Photos */
   $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
@@ -259,13 +265,14 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'photo_thumb',
+    'colorbox_node_style' => 'panopoly_image_video',
     'colorbox_image_style' => 'photo_large',
     'colorbox_gallery' => 'post',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'auto',
     'colorbox_caption_custom' => '',
   );
+  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
