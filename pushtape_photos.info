@@ -14,12 +14,14 @@ dependencies[] = media
 dependencies[] = menu
 dependencies[] = multiform
 dependencies[] = options
+dependencies[] = page_manager
 dependencies[] = panelizer
 dependencies[] = plupload
 dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_content
-datestamp = 1377651345
+datestamp = 1378933285
+features[ctools][] = page_manager:pages_default:1
 features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
@@ -31,6 +33,7 @@ features[image][] = photo_large
 features[image][] = photo_thumb
 features[image][] = photo_tiny
 features[node][] = photoset
+features[page_manager_pages][] = photos
 features[panelizer_defaults][] = node:photoset:default
 features[variable][] = field_bundle_settings_node__photoset
 features[variable][] = menu_options_photoset
@@ -45,11 +48,3 @@ features_exclude[dependencies][pushtape_video] = pushtape_video
 features_exclude[dependencies][pushtape_discography] = pushtape_discography
 features_exclude[field][node-photoset-field_featured_status] = node-photoset-field_featured_status
 features_exclude[field][node-photoset-field_photos] = node-photoset-field_photos
-
-
-; Information added by drush on 2013-08-27
-version = "7.x-1.x-panels-dev"
-core = "7.x"
-project = "pushtape_photos"
-datestamp = "1377651345"
-
