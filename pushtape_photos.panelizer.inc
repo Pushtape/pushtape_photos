@@ -18,9 +18,9 @@ function pushtape_photos_panelizer_defaults() {
   $panelizer->panelizer_type = 'node';
   $panelizer->panelizer_key = 'photoset';
   $panelizer->no_blocks = FALSE;
-  $panelizer->css_id = '';
+  $panelizer->css_id = 'photos';
   $panelizer->css = '';
-  $panelizer->pipeline = 'standard';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
