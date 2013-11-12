@@ -10,8 +10,7 @@ dependencies[] = media
 dependencies[] = multiform
 dependencies[] = plupload
 dependencies[] = strongarm
-dependencies[] = views_responsive_grid
-datestamp = 1379362186
+datestamp = 1382488315
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
@@ -40,13 +39,6 @@ features_exclude[dependencies][pushtape_discography] = pushtape_discography
 features_exclude[dependencies][options] = options
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][views_content] = views_content
+features_exclude[dependencies][views_responsive_grid] = views_responsive_grid
 features_exclude[field][node-photoset-field_featured_status] = node-photoset-field_featured_status
 features_exclude[field][node-photoset-field_photos] = node-photoset-field_photos
-
-
-; Information added by drush on 2013-09-16
-version = "7.x-1.0-alpha3"
-core = "7.x"
-project = "pushtape_photos"
-datestamp = "1379362186"
-
