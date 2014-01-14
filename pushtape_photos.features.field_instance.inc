@@ -75,6 +75,7 @@ function pushtape_photos_field_default_field_instances() {
           'colorbox_image_style' => 'photo_large',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'photo_thumb',
+          'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
         'weight' => 0,
