@@ -2,7 +2,7 @@ name = Pushtape_Photos
 description = Creates a photoset content type for sharing groups of photos.
 core = 7.x
 package = Pushtape
-version = 7.x-1.0-dev
+version = 7.x-1.0-panels
 project = pushtape_photos
 dependencies[] = colorbox
 dependencies[] = features
@@ -19,7 +19,6 @@ features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[field_base][] = field_featured_status
 features[field_base][] = field_photos
 features[field_instance][] = node-photoset-field_featured_status
 features[field_instance][] = node-photoset-field_photos
@@ -46,3 +45,5 @@ features_exclude[dependencies][views_content] = views_content
 features_exclude[dependencies][views_responsive_grid] = views_responsive_grid
 features_exclude[field][node-photoset-field_featured_status] = node-photoset-field_featured_status
 features_exclude[field][node-photoset-field_photos] = node-photoset-field_photos
+
+
