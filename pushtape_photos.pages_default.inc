@@ -70,49 +70,6 @@ function pushtape_photos_default_page_manager_pages() {
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
-    $pane->subtype = 'photosets-panel_pane_4';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'items_per_page' => '10',
-      'offset' => '0',
-      'fields_override' => array(
-        'field_photos' => 0,
-        'field_photos_1' => 0,
-        'colorbox' => 1,
-      ),
-      'exposed' => array(
-        'widget_title' => 'Photosets',
-        'more_link' => 0,
-        'use_pager' => 0,
-        'pager_id' => '',
-        'sort_by' => 'title',
-        'sort_order' => 'DESC',
-      ),
-      'override_title' => '',
-      'override_title_text' => '',
-      'view_mode' => 'teaser',
-      'widget_title' => 'Photosets',
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => 0,
-      'path' => NULL,
-      'view_settings' => 'fields',
-      'header_type' => 'none',
-    );
-    $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
-    $pane = new stdClass();
-    $pane->pid = 'new-2';
-    $pane->panel = 'contentmain';
-    $pane->type = 'views_panes';
     $pane->subtype = 'photosets-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -123,19 +80,15 @@ function pushtape_photos_default_page_manager_pages() {
         'title' => 1,
       ),
       'exposed' => array(
-        'widget_title' => 'All Photos',
-        'use_pager' => 0,
-        'pager_id' => '',
-        'path' => 'photos-page',
-        'sort_by' => 'created',
         'sort_order' => 'ASC',
+        'sort_by' => 'created',
       ),
       'override_title' => '',
       'override_title_text' => '',
       'view_mode' => 'teaser',
-      'widget_title' => 'All Photos',
-      'use_pager' => NULL,
-      'pager_id' => NULL,
+      'widget_title' => '',
+      'use_pager' => 0,
+      'pager_id' => '',
       'offset' => NULL,
       'link_to_view' => NULL,
       'more_link' => NULL,
@@ -149,12 +102,12 @@ function pushtape_photos_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['contentmain'][1] = 'new-2';
+    $display->content['new-1'] = $pane;
+    $display->panels['contentmain'][0] = 'new-1';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-2';
+  $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['photos'] = $page;
