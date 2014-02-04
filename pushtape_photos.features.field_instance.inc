@@ -66,18 +66,12 @@ function pushtape_photos_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'media_colorbox',
+        'module' => 'image',
         'settings' => array(
-          'audio_playlist' => FALSE,
-          'colorbox_caption' => 'title',
-          'colorbox_gallery' => 'post',
-          'colorbox_gallery_custom' => '',
-          'colorbox_view_mode' => 'large',
-          'file_view_mode' => 'small',
-          'fixed_height' => '',
-          'fixed_width' => '',
+          'image_link' => '',
+          'image_style' => '',
         ),
-        'type' => 'media_colorbox',
+        'type' => 'image',
         'weight' => 3,
       ),
       'featured' => array(
@@ -98,37 +92,24 @@ function pushtape_photos_field_default_field_instances() {
     'label' => 'Photos',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'alt_field' => 0,
+      'default_image' => 0,
       'file_directory' => 'photos',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'multiupload_filefield_widget',
+      'module' => 'multiupload_imagefield_widget',
       'settings' => array(
-        'allowed_schemes' => array(
-          'public' => 'public',
-          'vimeo' => 0,
-          'youtube' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 'media_default--media_browser_1',
-          'media_default--media_browser_my_files' => 0,
-          'media_internet' => 0,
-          'upload' => 'upload',
-          'youtube' => 0,
-        ),
+        'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'file_mfw',
+      'type' => 'image_miw',
       'weight' => 1,
     ),
   );
