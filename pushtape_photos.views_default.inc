@@ -48,14 +48,6 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'No photos yet. Create a <a href="?q=node/add/photoset">photoset!</a>';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Photos */
   $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
   $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
@@ -65,15 +57,26 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'photo_tiny',
-    'colorbox_image_style' => 'photo_large',
+    'colorbox_node_style' => 'panopoly_image_video',
+    'colorbox_node_style_first' => '',
+    'colorbox_image_style' => 'panopoly_image_full',
     'colorbox_gallery' => 'post',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'auto',
     'colorbox_caption_custom' => '',
   );
+  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -101,35 +104,6 @@ function pushtape_photos_views_default_views() {
   /* Display: Photo grid (all photos) */
   $handler = $view->new_display('panel_pane', 'Photo grid (all photos)', 'panel_pane_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photos */
-  $handler->display->display_options['fields']['field_photos']['id'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['table'] = 'field_data_field_photos';
-  $handler->display->display_options['fields']['field_photos']['field'] = 'field_photos';
-  $handler->display->display_options['fields']['field_photos']['label'] = '';
-  $handler->display->display_options['fields']['field_photos']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
-  $handler->display->display_options['fields']['field_photos']['settings'] = array(
-    'colorbox_node_style' => 'panopoly_image_video',
-    'colorbox_image_style' => 'photo_large',
-    'colorbox_gallery' => 'post',
-    'colorbox_gallery_custom' => '',
-    'colorbox_caption' => 'auto',
-    'colorbox_caption_custom' => '',
-  );
-  $handler->display->display_options['fields']['field_photos']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_photos']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_photos']['separator'] = ' ';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -199,7 +173,8 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
     'colorbox_node_style' => 'panopoly_image_video',
-    'colorbox_image_style' => 'photo_large',
+    'colorbox_node_style_first' => '',
+    'colorbox_image_style' => 'panopoly_image_full',
     'colorbox_gallery' => 'field_post',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'auto',
@@ -219,6 +194,7 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos_1']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos_1']['settings'] = array(
     'colorbox_node_style' => '',
+    'colorbox_node_style_first' => '',
     'colorbox_image_style' => '',
     'colorbox_gallery' => 'field_post',
     'colorbox_gallery_custom' => '',
@@ -389,7 +365,8 @@ function pushtape_photos_views_default_views() {
   $handler->display->display_options['fields']['field_photos']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_photos']['settings'] = array(
     'colorbox_node_style' => 'panopoly_image_video',
-    'colorbox_image_style' => 'photo_large',
+    'colorbox_node_style_first' => '',
+    'colorbox_image_style' => 'panopoly_image_full',
     'colorbox_gallery' => 'field_post',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'auto',

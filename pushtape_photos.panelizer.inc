@@ -20,7 +20,7 @@ function pushtape_photos_panelizer_defaults() {
   $panelizer->no_blocks = FALSE;
   $panelizer->css_id = 'photos';
   $panelizer->css = '';
-  $panelizer->pipeline = 'standard';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
@@ -35,7 +35,6 @@ function pushtape_photos_panelizer_defaults() {
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
-      'center' => NULL,
       'contentmain' => NULL,
     ),
   );
@@ -51,21 +50,15 @@ function pushtape_photos_panelizer_defaults() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'teaser',
-      'widget_title' => NULL,
-      'items_per_page' => NULL,
-      'exposed' => array(
-        'sort_by' => NULL,
-        'sort_order' => NULL,
+      'fields_override' => array(
+        'field_photos' => 1,
       ),
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'offset' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => NULL,
-      'path' => NULL,
+      'override_title' => '',
+      'override_title_text' => '',
       'view_settings' => 'fields',
       'header_type' => 'none',
+      'view_mode' => 'teaser',
+      'widget_title' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -78,7 +71,7 @@ function pushtape_photos_panelizer_defaults() {
     $display->content['new-1'] = $pane;
     $display->panels['contentmain'][0] = 'new-1';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:photoset:default'] = $panelizer;
 

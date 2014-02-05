@@ -23,15 +23,16 @@ function pushtape_photos_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
+        'type' => 'list_default',
+        'weight' => 1,
       ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -54,7 +55,7 @@ function pushtape_photos_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -65,14 +66,20 @@ function pushtape_photos_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
+        'label' => 'hidden',
+        'module' => 'colorbox',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => 'panopoly_image_full',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'panopoly_image_video',
+          'colorbox_node_style_first' => '',
         ),
-        'type' => 'image',
-        'weight' => 3,
+        'type' => 'colorbox',
+        'weight' => 0,
       ),
       'featured' => array(
         'label' => 'above',
@@ -99,7 +106,7 @@ function pushtape_photos_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => 0,
+      'title_field' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
