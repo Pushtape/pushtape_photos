@@ -40,10 +40,11 @@ function pushtape_photos_panelizer_defaults() {
   );
   $display->cache = array();
   $display->title = '%node:title';
+  $display->uuid = 'a8cd195f-3e8d-4fd5-af6d-27dc888c3963';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-6db82843-6884-4f6b-b317-0d6db0f3c5c9';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'photosets-panel_pane_2';
@@ -68,8 +69,9 @@ function pushtape_photos_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
+    $pane->uuid = '6db82843-6884-4f6b-b317-0d6db0f3c5c9';
+    $display->content['new-6db82843-6884-4f6b-b317-0d6db0f3c5c9'] = $pane;
+    $display->panels['contentmain'][0] = 'new-6db82843-6884-4f6b-b317-0d6db0f3c5c9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $panelizer->display = $display;

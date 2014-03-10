@@ -64,10 +64,11 @@ function pushtape_photos_default_page_manager_pages() {
   );
   $display->cache = array();
   $display->title = '';
+  $display->uuid = '8755ba15-4890-4ecb-8b4f-481db17748fe';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-bf6c16b9-263f-41f7-bd1a-3b0858be2ac5';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'photosets-panel_pane_3';
@@ -104,10 +105,11 @@ function pushtape_photos_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1';
+    $pane->uuid = 'bf6c16b9-263f-41f7-bd1a-3b0858be2ac5';
+    $display->content['new-bf6c16b9-263f-41f7-bd1a-3b0858be2ac5'] = $pane;
+    $display->panels['contentmain'][0] = 'new-bf6c16b9-263f-41f7-bd1a-3b0858be2ac5';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-bf6c16b9-263f-41f7-bd1a-3b0858be2ac5';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['photos'] = $page;
