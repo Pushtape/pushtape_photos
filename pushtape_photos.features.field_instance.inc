@@ -23,15 +23,16 @@ function pushtape_photos_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
+        'type' => 'list_default',
+        'weight' => 1,
       ),
       'featured' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -54,7 +55,7 @@ function pushtape_photos_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -72,31 +73,18 @@ function pushtape_photos_field_default_field_instances() {
           'colorbox_caption_custom' => '',
           'colorbox_gallery' => 'post',
           'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => 'photo_large',
+          'colorbox_image_style' => 'panopoly_image_full',
           'colorbox_multivalue_index' => NULL,
-          'colorbox_node_style' => 'photo_thumb',
+          'colorbox_node_style' => 'panopoly_image_video',
+          'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
         'weight' => 0,
       ),
       'featured' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'photo_thumb',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
-      'rss' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'artwork_thumbnail',
-        ),
-        'type' => 'image',
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -123,29 +111,12 @@ function pushtape_photos_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'media',
+      'module' => 'multiupload_imagefield_widget',
       'settings' => array(
-        'allowed_schemes' => array(
-          'private' => 'private',
-          'public' => 'public',
-          'vimeo' => 0,
-          'youtube' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 'media_default--media_browser_1',
-          'media_default--media_browser_my_files' => 0,
-          'media_internet' => 0,
-          'upload' => 'upload',
-        ),
+        'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'media_generic',
+      'type' => 'image_miw',
       'weight' => 1,
     ),
   );

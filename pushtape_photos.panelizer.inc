@@ -18,9 +18,9 @@ function pushtape_photos_panelizer_defaults() {
   $panelizer->panelizer_type = 'node';
   $panelizer->panelizer_key = 'photoset';
   $panelizer->no_blocks = FALSE;
-  $panelizer->css_id = '';
+  $panelizer->css_id = 'photos';
   $panelizer->css = '';
-  $panelizer->pipeline = 'standard';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
@@ -30,41 +30,36 @@ function pushtape_photos_panelizer_defaults() {
   $panelizer->link_to_entity = TRUE;
   $panelizer->extra = array();
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'bowie';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
-      'center' => NULL,
+      'contentmain' => NULL,
     ),
   );
   $display->cache = array();
   $display->title = '%node:title';
+  $display->uuid = 'a8cd195f-3e8d-4fd5-af6d-27dc888c3963';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
-    $pane->panel = 'center';
+    $pane->pid = 'new-6db82843-6884-4f6b-b317-0d6db0f3c5c9';
+    $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
     $pane->subtype = 'photosets-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'teaser',
-      'widget_title' => NULL,
-      'items_per_page' => NULL,
-      'exposed' => array(
-        'sort_by' => NULL,
-        'sort_order' => NULL,
+      'fields_override' => array(
+        'field_photos' => 1,
       ),
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'offset' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => NULL,
-      'path' => NULL,
+      'override_title' => '',
+      'override_title_text' => '',
       'view_settings' => 'fields',
       'header_type' => 'none',
+      'view_mode' => 'teaser',
+      'widget_title' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -74,10 +69,11 @@ function pushtape_photos_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['center'][0] = 'new-1';
+    $pane->uuid = '6db82843-6884-4f6b-b317-0d6db0f3c5c9';
+    $display->content['new-6db82843-6884-4f6b-b317-0d6db0f3c5c9'] = $pane;
+    $display->panels['contentmain'][0] = 'new-6db82843-6884-4f6b-b317-0d6db0f3c5c9';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:photoset:default'] = $panelizer;
 
