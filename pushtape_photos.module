@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Pushtape_Photos feature.
+ * Code for the Pushtape Photos feature.
  */
 
 include_once 'pushtape_photos.features.inc';
